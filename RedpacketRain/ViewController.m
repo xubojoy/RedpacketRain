@@ -30,6 +30,7 @@
     [self.timer invalidate];
     self.timer = [NSTimer scheduledTimerWithTimeInterval:(0.5) target:self selector:@selector(showRain) userInfo:nil repeats:YES];
 }
+//红包雨动画
 - (void)showRain
 {
     CALayer *moveLayer = [CALayer new];
@@ -39,9 +40,10 @@
     moveLayer.contents = (id)[UIImage imageNamed:@"redpacket"].CGImage;
     [self.view.layer addSublayer:moveLayer];
     
+    int space = screen_width;
     CAKeyframeAnimation *moveAnimation = [CAKeyframeAnimation animationWithKeyPath:@"position"];
-    NSValue *A = [NSValue valueWithCGPoint:CGPointMake(arc4random() % 414, 0)];
-    NSValue *B = [NSValue valueWithCGPoint:CGPointMake(arc4random() % 414, screen_height)];
+    NSValue *A = [NSValue valueWithCGPoint:CGPointMake(arc4random() % space, 0)];
+    NSValue *B = [NSValue valueWithCGPoint:CGPointMake(arc4random() % space, screen_height)];
     
     moveAnimation.values = @[A,B];
     moveAnimation.duration = arc4random() %200 / 100.0 + 3.5;
@@ -49,6 +51,7 @@
     moveAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionLinear];
     [moveLayer addAnimation:moveAnimation forKey:nil];
     
+//    旋转动画
     CAKeyframeAnimation *transAnimation = [CAKeyframeAnimation animationWithKeyPath:@"transform"];
     CATransform3D r0 = CATransform3DMakeRotation(M_PI/180 * (arc4random() % 360),0,0,-1);
     CATransform3D r1 = CATransform3DMakeRotation(M_PI/180 * (arc4random() % 360),0,0,-1);
@@ -74,6 +77,8 @@
             NSLog(@"%d",i);
             
             BOOL hasRedPacketd = !(i % 3) ;
+            
+            NSLog(@"hasRedPacketd------%d",hasRedPacketd);
             
             UIImageView * newPacketIV = [UIImageView new];
             if (hasRedPacketd)
