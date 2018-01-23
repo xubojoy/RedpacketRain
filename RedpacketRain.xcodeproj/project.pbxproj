@@ -13,6 +13,9 @@
 		1C5003342017296C00A244E9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1C5003332017296C00A244E9 /* Assets.xcassets */; };
 		1C5003372017296C00A244E9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C5003352017296C00A244E9 /* LaunchScreen.storyboard */; };
 		1C50033A2017296C00A244E9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C5003392017296C00A244E9 /* main.m */; };
+		1C5003412017299200A244E9 /* redpacket.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C5003402017299200A244E9 /* redpacket.png */; };
+		1C50034320172BF300A244E9 /* fudai.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C50034220172BF200A244E9 /* fudai.png */; };
+		33F7F5D77CED935E04D20D09 /* libPods-RedpacketRain.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C3A470990217B23F8CCB1ED /* libPods-RedpacketRain.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +29,11 @@
 		1C5003362017296C00A244E9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1C5003382017296C00A244E9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1C5003392017296C00A244E9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		1C5003402017299200A244E9 /* redpacket.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = redpacket.png; sourceTree = "<group>"; };
+		1C50034220172BF200A244E9 /* fudai.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fudai.png; sourceTree = "<group>"; };
+		2C3A470990217B23F8CCB1ED /* libPods-RedpacketRain.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RedpacketRain.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		560C1D8984C33FD1A0BC19A6 /* Pods-RedpacketRain.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RedpacketRain.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RedpacketRain/Pods-RedpacketRain.debug.xcconfig"; sourceTree = "<group>"; };
+		60238C834426660759483ACA /* Pods-RedpacketRain.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RedpacketRain.release.xcconfig"; path = "Pods/Target Support Files/Pods-RedpacketRain/Pods-RedpacketRain.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +41,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				33F7F5D77CED935E04D20D09 /* libPods-RedpacketRain.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -44,6 +53,8 @@
 			children = (
 				1C5003292017296C00A244E9 /* RedpacketRain */,
 				1C5003282017296C00A244E9 /* Products */,
+				544CD0CC37F1A89A5828BFE6 /* Pods */,
+				42C6A7EB0638F03DEAD034B6 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -62,6 +73,8 @@
 				1C50032B2017296C00A244E9 /* AppDelegate.m */,
 				1C50032D2017296C00A244E9 /* ViewController.h */,
 				1C50032E2017296C00A244E9 /* ViewController.m */,
+				1C50034220172BF200A244E9 /* fudai.png */,
+				1C5003402017299200A244E9 /* redpacket.png */,
 				1C5003302017296C00A244E9 /* Main.storyboard */,
 				1C5003332017296C00A244E9 /* Assets.xcassets */,
 				1C5003352017296C00A244E9 /* LaunchScreen.storyboard */,
@@ -71,6 +84,23 @@
 			path = RedpacketRain;
 			sourceTree = "<group>";
 		};
+		42C6A7EB0638F03DEAD034B6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2C3A470990217B23F8CCB1ED /* libPods-RedpacketRain.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		544CD0CC37F1A89A5828BFE6 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				560C1D8984C33FD1A0BC19A6 /* Pods-RedpacketRain.debug.xcconfig */,
+				60238C834426660759483ACA /* Pods-RedpacketRain.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -78,9 +108,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1C50033D2017296C00A244E9 /* Build configuration list for PBXNativeTarget "RedpacketRain" */;
 			buildPhases = (
+				4F6F04CEA5FBD6D17FA69CCB /* [CP] Check Pods Manifest.lock */,
 				1C5003232017296C00A244E9 /* Sources */,
 				1C5003242017296C00A244E9 /* Frameworks */,
 				1C5003252017296C00A244E9 /* Resources */,
+				EA203C2951977C4A250AB5CA /* [CP] Embed Pods Frameworks */,
+				54F6BC057269A3B232CE8BB2 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -129,13 +162,66 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1C50034320172BF300A244E9 /* fudai.png in Resources */,
 				1C5003372017296C00A244E9 /* LaunchScreen.storyboard in Resources */,
 				1C5003342017296C00A244E9 /* Assets.xcassets in Resources */,
 				1C5003322017296C00A244E9 /* Main.storyboard in Resources */,
+				1C5003412017299200A244E9 /* redpacket.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4F6F04CEA5FBD6D17FA69CCB /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-RedpacketRain-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		54F6BC057269A3B232CE8BB2 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RedpacketRain/Pods-RedpacketRain-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EA203C2951977C4A250AB5CA /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RedpacketRain/Pods-RedpacketRain-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		1C5003232017296C00A244E9 /* Sources */ = {
@@ -276,6 +362,7 @@
 		};
 		1C50033E2017296C00A244E9 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 560C1D8984C33FD1A0BC19A6 /* Pods-RedpacketRain.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -290,6 +377,7 @@
 		};
 		1C50033F2017296C00A244E9 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 60238C834426660759483ACA /* Pods-RedpacketRain.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
