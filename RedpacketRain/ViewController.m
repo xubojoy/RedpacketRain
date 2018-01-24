@@ -20,11 +20,63 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    self.view.backgroundColor = [UIColor whiteColor];
-    [self beginRain];
+    self.view.backgroundColor = [UIColor cyanColor];
+    [self startTime];
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(clickRed:)];
     [self.view addGestureRecognizer:tap];
 }
+
+//开始倒计时
+- (void)startTime
+{
+    __block int timeout = 5;
+    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    dispatch_source_t _timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0,queue);
+    dispatch_source_set_timer(_timer,dispatch_walltime(NULL, 0),1.0*NSEC_PER_SEC, 0);
+    dispatch_source_set_event_handler(_timer, ^{
+        if ( timeout <= 0 )
+        {
+            dispatch_source_cancel(_timer);
+            dispatch_async(dispatch_get_main_queue(), ^{
+                 [self beginRain];
+            });
+        }
+        else
+        {
+            int seconds = timeout % 6;
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self countDown:seconds];
+            });
+            timeout--;
+        }
+    });
+    dispatch_resume(_timer);
+}
+//倒计时显示
+-(void)countDown:(int)count{
+    if(count <=0){
+        //倒计时已到，作需要作的事吧。
+        return;
+    }
+    UILabel* lblCountDown = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 100, 100)];
+    lblCountDown.textColor = [UIColor whiteColor];
+    lblCountDown.font = [UIFont boldSystemFontOfSize:80];
+    lblCountDown.textAlignment = NSTextAlignmentCenter;
+    lblCountDown.center = self.view.center;
+    lblCountDown.backgroundColor = [UIColor clearColor];
+    lblCountDown.text = [NSString stringWithFormat:@"%d",count];
+    [self.view addSubview:lblCountDown];
+    
+    [UIView animateWithDuration:1 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
+        lblCountDown.alpha = 0;
+        lblCountDown.transform = CGAffineTransformScale(CGAffineTransformIdentity, 0.5, 0.5);
+    } completion:^(BOOL finished) {
+        [lblCountDown removeFromSuperview];
+        //不用GCD可直接用递归调用，直到计时为零
+        //[self countDown:count-1];
+    }];
+}
+
 //设置定时器
 - (void)beginRain{
     [self.timer invalidate];
